@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.container1{
+    height: 40px;
+    font-family: 'Abel', sans-serif;
+    width: 70%;
+}
+#container2{
+    background-color: rgba(151, 122, 122, 0.562);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    width: 15%;
+}
+#main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card-header1{
+    font-family: 'Abel', sans-serif;
+}
+.form-select{
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Abel', sans-serif;
+}
+#createIssue-form{
+    display: flex;
+    flex-direction: column;
+}
+.card-body1{
+    width: 20%;
+    background-color: rgba(151, 122, 122, 0.562);
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+}
+.container3{
+    background-color: rgba(151, 122, 122, 0.562);
+    padding: 10px;
+    width: 28%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+}
+.form-control{
+    margin: 7px ;
+    padding: 5px;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border-radius: 3px;
+    background-color: rgba(151, 122, 122, 0.562);
+    border: none;
+}
+.form-select-sm{
+    width: 45%;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border-radius: 3px;
+    background-color: rgba(151, 122, 122, 0.562);
+}
+.form-select-lg{
+    width: 45%;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border-radius: 3px;
+    background-color: rgba(151, 122, 122, 0.562);
+}
+.form-select-sm1{
+    width: 94%;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border-radius: 3px;
+    background-color: rgba(151, 122, 122, 0.562);
+}
+.form-select-sm2{
+    width: 94%;
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border-radius: 3px;
+    background-color: rgba(151, 122, 122, 0.562);
+}
+.my-2{
+    margin-left: 5px;
+    padding: 3px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgba(151, 122, 122, 0.562);
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    cursor: pointer;
+}
+#issue{
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+}
+.btn-danger{
+    width: 30%;
+    margin-left: 7px;
+    font-family: 'Abel', sans-serif;
+    background-color: rgba(151, 122, 122, 0.562);
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border: none;
+    border-radius: 3px;
+}
+#filter-h4{
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+}
+.mt-3{
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+}
+.list-group{
+    background-color: rgba(151, 122, 122, 0.562);
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 1%;
+}
+.mb-1{
+    margin-left: 5px;
+    font-family: 'Abel', sans-serif;
+}
+#issue-delete{
+    margin-left: 85%;
+    background-color: rgba(151, 122, 122, 0.562);
+    box-shadow: 3px 3px 3px rgba(120, 116, 116, 0.98);
+    border: none;
+    border-radius: 3px;
+    padding: 2px;
+    cursor: pointer;
+    font-family: 'Abel', sans-serif;
+}

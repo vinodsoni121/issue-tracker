@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/viewProject.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abel&family=Anybody:wght@100&family=Imperial+Script&family=Inconsolata:wght@200&family=Inter:wght@300&family=Lato&family=Montserrat:wght@100&family=Open+Sans:wght@300&family=Oswald:wght@300&family=Raleway:wght@100&family=Roboto+Condensed:wght@300&family=Roboto+Mono:wght@200&family=Roboto:wght@100&family=Smooch+Sans:wght@700&family=Sofia+Sans:wght@200&family=Source+Code+Pro:wght@200&family=Source+Sans+Pro:wght@300&family=Teko:wght@300&display=swap"
+        rel="stylesheet">
+
+    
+    <!-- title -->
+    <title>THE ISSUE TRACKER</title>
+
+</head>
+
+<body>
+
+    <!-- Header Container -->
+    <header>
+        <div class="navbar">
+            <div class="container1">
+                <a href="/" class="navbar-brand">
+                    <strong>ISSUE TRACKER</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="main-container">
+        <div id="container2">
+            <% if(curProject) { %>
+                <div class="card-header1">
+                    Title : <%= curProject.name %>
+                </div>
+                <h5 class="card-title card-header1">Author : <%= curProject.author %>
+                </h5>
+                <p class="card-text card-header1">
+                    Description : <%= curProject.description %>
+                </p>
+                <%}%>
+        </div>
+        <!-- Filter Container -->
+        <div class="container3">
+            <h4 id="filter-h4">Filter the Project</h4>
+            <form action="/viewProject" method="post" onsubmit="return check()">
+                <div class="row">
+                    <div class="col">
+                        <select name="selectTitle" id="inputTitle" class="form-select form-select-sm"
+                            style="height: 50%;">
+                            <option value=0>-- SELECT TITLE --</option>
+                            <% for(a of allTitles){ %>
+                                <option value='<%= a %>'>
+                                    <%= a %>
+                                </option>
+                                <% } %>
+                        </select>
+
+                        <select name="selectAuthor" id="inputAuthor" class="form-select form-select-lg text-center"
+                            style="height: 100%;">
+                            <option value=0> -- SELECT AUTHOR --</option>
+                            <% for(a of allAuthors){ %>
+                                <option value='<%= a %>'>
+                                    <%= a %>
+                                </option>
+                                <%= a %>
+                                    <% } %>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="selectLabels" id="inputLabel" multiple
+                            class="form-select form-select-sm1 text-center">
+                            <option value=0>-- SELECT MULTIPLE LABELS --</option>
+                            <% for(a of allLabels){ %>
+                                <option value='<%= a %>'>
+                                    <%= a %>
+                                </option>
+                                <%= a %>
+                                    <% } %>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <select name="selectDescription" id="inputDescription" class="form-select form-select-sm2"
+                            style="height: 50%;">
+                            <option value=0>-- SELECT DESCRIPTION --</option>
+                            <% for(a of allDescriptions){ %>
+                                <option value='<%= a %>'>
+                                    <%= a %>
+                                </option>
+                                <%= a %>
+                                    <% } %>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" value="Filter" id="btn_search" class="btn btn-primary my-2">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="card card-body1">
+            <h4 id="issue">Create issue</h4>
+            <form action="/createIssue" method="post" id="createIssue-form">
+                <input type="hidden" name="projectID" value='<%= curProject.id %>' class="form-control">
+                <input type="text" name="title" placeholder="Enter Title Here ..." class="form-control">
+                <input type="text" name="labels" placeholder="Enter Labels Here (with comma) ..." class="form-control">
+                <input type="text" name="author" placeholder="Enter Author Here ..." class="form-control">
+                <textarea name="description" placeholder="Enter Description Here ..." cols="80"
+                    class="form-control"></textarea>
+                <input type="submit" value="Add Issue" class="btn btn-danger mt-1" id="liveToastBtn">
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Current Project Container -->
+    <div id="current_project_container" class="container">
+        <% if(curProject) { %>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="mt-3">Issue List</h3>
+                    <div>
+                        <% if(cur_project_issues) { %>
+                            <% for (i of cur_project_issues) { %>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                                        <div class="d-flex1 w-100">
+                                            <h5 class="mb-1">
+                                                Title: <%= i.title %>
+                                            </h5>
+                                        </div>
+                                        <p class="mb-1 d-flex2">
+                                            Description: <%= i.description %>
+                                        </p>
+                                        <p class="mb-1 d-flex3">
+                                            Author: <%= i.author %>
+                                        </p>
+                                        <small>
+                                            <% if(i.labels) { %>
+                                                <% for (j of i.labels) { %>
+                                                    <span class="badge d-flex4 mb-1 bg-warning p-2">
+                                                        Lables: <%= j %>
+                                                    </span>
+                                                    <% } %>
+                                                        <% } %>
+                                        </small>
+                                        <a href="/delete-issue?id=<%=i._id%>">
+                                            <button id="issue-delete">Delete</button>
+                                        </a>
+                                    </a>
+                                </div>
+                                <% } %>
+                                    <% } %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </div>
+
+    <!-- Custom Javascript -->
+    <script src="../js/viewProjectScript.js">
+    </script>
+
+</body>
+
+</html>
